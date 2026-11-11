@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>JSZCustomerService</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class JSZCustomerService
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>findCustomer</Name>
+				<Source><![CDATA[
+    public static CustTable findCustomer(AccountNum _accountNum)
+    {
+        return JSZCustomerManage::findCustomer(_accountNum);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>createCustomer</Name>
+				<Source><![CDATA[
+    public static boolean createCustomer(CustTable _custTable)
+    {
+        return JSZCustomerManage::createCustomer(_custTable);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>updateCustomer</Name>
+				<Source><![CDATA[
+    public static boolean updateCustomer(CustTable _custTable)
+    {
+        return JSZCustomerManage::updateCustomer(_custTable);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>deleteCustomer</Name>
+				<Source><![CDATA[
+    public static boolean deleteCustomer(CustTable _custTable)
+    {
+        return JSZCustomerManage::deleteCustomer(_custTable);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

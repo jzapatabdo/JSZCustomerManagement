@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <BuildTasksDirectory Condition=" '$(BuildTasksDirectory)' == ''">$(MSBuildProgramFiles32)\MSBuild\Microsoft\Dynamics\AX</BuildTasksDirectory>
+    <Model>JSZCustomerManagement1</Model>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <OutputPath>bin</OutputPath>
+    <SchemaVersion>2.0</SchemaVersion>
+    <GenerateCrossReferences>True</GenerateCrossReferences>
+    <RunAppCheckerRules>False</RunAppCheckerRules>
+    <LogAppcheckerDiagsAsErrors>False</LogAppcheckerDiagsAsErrors>
+    <DeployOnline>False</DeployOnline>
+    <ProjectGuid>{91a5c391-80b8-4e3d-8788-badc8afd59e7}</ProjectGuid>
+    <Name>JSZCustomerManagement</Name>
+    <RootNamespace>JSZCustomerManagement</RootNamespace>
+    <StartupObject>JSZCustomerInquiryMenuItem</StartupObject>
+    <StartupType>MenuItemDisplay</StartupType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Configuration>Debug</Configuration>
+    <DBSyncInBuild>False</DBSyncInBuild>
+    <GenerateFormAdaptors>False</GenerateFormAdaptors>
+    <Company>
+    </Company>
+    <Partition>initial</Partition>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DataEntityExpandParentChildRelations>False</DataEntityExpandParentChildRelations>
+    <DataEntityUseLabelTextAsFieldName>False</DataEntityUseLabelTextAsFieldName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="AxClass\JSZCustomerManage">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerManage</Name>
+      <Link>JSZCustomerManage</Link>
+    </Content>
+    <Content Include="AxClass\JSZCustomerService">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerService</Name>
+      <Link>JSZCustomerService</Link>
+    </Content>
+    <Content Include="AxClass\JSZCustomerValidation">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerValidation</Name>
+      <Link>JSZCustomerValidation</Link>
+    </Content>
+    <Content Include="AxForm\JSZCustomerInquiryForm">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerInquiryForm</Name>
+      <Link>JSZCustomerInquiryForm</Link>
+    </Content>
+    <Content Include="AxLabelFile\JSZCustomer_en-US">
+      <SubType>Content</SubType>
+      <Name>JSZCustomer_en-US</Name>
+      <Link>JSZCustomer_en-US</Link>
+    </Content>
+    <Content Include="AxLabelFile\JSZCustomer_es-CO">
+      <SubType>Content</SubType>
+      <Name>JSZCustomer_es-CO</Name>
+      <Link>JSZCustomer_es-CO</Link>
+    </Content>
+    <Content Include="AxMenuItemDisplay\JSZCustomerInquiryMenuItem">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerInquiryMenuItem</Name>
+      <Link>JSZCustomerInquiryMenuItem</Link>
+    </Content>
+    <Content Include="AxSecurityDuty\JSZCustomerManagementDuty">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerManagementDuty</Name>
+      <Link>JSZCustomerManagementDuty</Link>
+    </Content>
+    <Content Include="AxSecurityPrivilege\JSZCustomerMaintainPrivilege">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerMaintainPrivilege</Name>
+      <Link>Security\JSZCustomerMaintainPrivilege</Link>
+    </Content>
+    <Content Include="AxSecurityPrivilege\JSZCustomerViewPrivilege">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerViewPrivilege</Name>
+      <Link>Security\JSZCustomerViewPrivilege</Link>
+    </Content>
+    <Content Include="AxSecurityRole\JSZCustomerAdministratorRole">
+      <SubType>Content</SubType>
+      <Name>JSZCustomerAdministratorRole</Name>
+      <Link>Security\JSZCustomerAdministratorRole</Link>
+    </Content>
+    <Content Include="JSZCustomer.en-US.label.txt">
+      <SubType>Content</SubType>
+      <Name>JSZCustomer.en-US.label.txt</Name>
+      <DependentUpon>AxLabelFile\JSZCustomer_en-US</DependentUpon>
+    </Content>
+    <Content Include="JSZCustomer.es-CO.label.txt">
+      <SubType>Content</SubType>
+      <Name>JSZCustomer.es-CO.label.txt</Name>
+      <DependentUpon>AxLabelFile\JSZCustomer_es-CO</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Security" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(BuildTasksDirectory)\Microsoft.Dynamics.Framework.Tools.BuildTasks.17.0.targets" />
+</Project>

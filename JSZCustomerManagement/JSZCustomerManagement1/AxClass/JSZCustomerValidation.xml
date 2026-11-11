@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>JSZCustomerValidation</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class JSZCustomerValidation
+{
+
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>validateAccountNum</Name>
+				<Source><![CDATA[
+    public static boolean validateAccountNum(
+    CustTable _custTable)
+    {
+        if (!_custTable.AccountNum)
+        {
+            error("@JSZCustomer:CustomerAccountRequired");
+
+            return false;
+        }
+
+        return true;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>validateCustGroup</Name>
+				<Source><![CDATA[
+    public static boolean validateCustGroup(
+    CustTable _custTable)
+    {
+        if (!_custTable.CustGroup)
+        {
+            error("@JSZCustomer:CustomerGroupRequired");
+
+            return false;
+        }
+
+        return true;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>validateDuplicateCustomer</Name>
+				<Source><![CDATA[
+    public static boolean validateDuplicateCustomer(
+    CustTable _custTable)
+    {
+        CustTable custTable;
+
+        select firstOnly custTable
+        where custTable.AccountNum == _custTable.AccountNum
+           && custTable.RecId != _custTable.RecId;
+
+        if (custTable.RecId)
+        {
+            error(strFmt(
+            "@JSZCustomer:CustomerAlreadyExists",
+            _custTable.AccountNum));
+
+            return false;
+        }
+
+        return true;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>validateDelete</Name>
+				<Source><![CDATA[
+    public static boolean validateDelete(
+    CustTable _custTable)
+    {
+        return true;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>validateCustomer</Name>
+				<Source><![CDATA[
+    public static boolean validateCustomer(
+    CustTable _custTable)
+    {
+        boolean isValid = true;
+
+        isValid = isValid &&
+              JSZCustomerValidation::validateAccountNum(
+                  _custTable);
+
+        isValid = isValid &&
+              JSZCustomerValidation::validateCustGroup(
+                  _custTable);
+
+        isValid = isValid &&
+              JSZCustomerValidation::validateDuplicateCustomer(
+                  _custTable);
+
+        return isValid;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

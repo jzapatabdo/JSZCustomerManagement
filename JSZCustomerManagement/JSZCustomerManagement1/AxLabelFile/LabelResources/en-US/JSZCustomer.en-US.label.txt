@@ -1,0 +1,7 @@
+﻿CustomerAccount=Customer Account
+CustomerDetails=Customer Details
+CustomerGroup=Customer Group
+CustomerInquiryTitle=Customer Inquiry
+ ;Label file comment - see above label
+CustomerName=Customer Name
+CustomerSearch=Customer Search

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxLabelFile xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>JSZCustomer_es-CO</Name>
+	<LabelContentFileName>JSZCustomer.es-CO.label.txt</LabelContentFileName>
+	<LabelFileId>JSZCustomer</LabelFileId>
+	<Language>es-CO</Language>
+	<RelativeUriInModelStore>JSZCustomerManagement1\JSZCustomerManagement1\AxLabelFile\LabelResources\es-CO\JSZCustomer.es-CO.label.txt</RelativeUriInModelStore>
+</AxLabelFile>

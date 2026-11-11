@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>JSZCustomerManage</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+class JSZCustomerManage
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>findCustomer</Name>
+				<Source><![CDATA[
+    public static CustTable findCustomer(AccountNum _accountNum)
+    {
+        CustTable custTable;
+
+        select firstOnly custTable
+        where custTable.AccountNum == _accountNum;
+
+        return custTable;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>createCustomer</Name>
+				<Source><![CDATA[
+    public static boolean createCustomer(CustTable _custTable)
+    {
+        boolean success = false;
+
+        if (!JSZCustomerValidation::validateCustomer(_custTable))
+        {
+            return false;
+        }
+
+        ttsbegin;
+
+        try
+        {
+            _custTable.insert();
+
+            ttscommit;
+
+            success = true;
+        }
+        catch (Exception::Error)
+        {
+            ttsabort;
+
+            error("@JSZCustomer:CustomerCreateError");
+        }
+
+        return success;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>updateCustomer</Name>
+				<Source><![CDATA[
+    public static boolean updateCustomer(CustTable _custTable)
+    {
+        boolean success = false;
+
+        if (!JSZCustomerValidation::validateCustomer(_custTable))
+        {
+            return false;
+        }
+
+        ttsbegin;
+
+        try
+        {
+            _custTable.update();
+
+            ttscommit;
+
+            success = true;
+        }
+        catch (Exception::Error)
+        {
+            ttsabort;
+
+            error("@JSZCustomer:CustomerUpdateError");
+        }
+
+        return success;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>deleteCustomer</Name>
+				<Source><![CDATA[
+    public static boolean deleteCustomer(CustTable _custTable)
+    {
+        boolean success = false;
+
+        if (!JSZCustomerValidation::validateDelete(_custTable))
+        {
+            return false;
+        }
+
+        ttsbegin;
+
+        try
+        {
+            _custTable.delete();
+
+            ttscommit;
+
+            success = true;
+        }
+        catch (Exception::Error)
+        {
+            ttsabort;
+
+            error("@JSZCustomer:CustomerDeleteError");
+        }
+
+        return success;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
